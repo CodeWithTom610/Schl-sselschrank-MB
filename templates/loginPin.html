@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{{ bootstrap.load_css() }}
+{{ bootstrap.load_js() }}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+    </head>
+    <body style="background-color: #090233;">
+
+        <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+            
+            <div class="p-5 bg-light rounded shadow" style="width: 75%; background-color: #090233; color: black;">
+                <div class="mb-4">
+                    <form method="post">
+                        <h1>Kürzel</h1>
+                        <input class="form-control form-control-lg" type="text" name="kuerzel" id="kuerzel">
+                        <br>
+                        <h1>PIN</h1>
+                        <input class="form-control form-control-lg" type="password" name="pin" id="pin">
+                        <br>
+                        <button type="submit" class="btn btn-primary w-100 fs-3 py-3">Absenden</button>
+                        <br>
+                        <br>
+                        <a href="{{url_for('login')}}" class="btn btn-danger w-100 fs-3 py-3">Zurück</a>
+                        
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </body>
+    </html>
+{% endblock %}

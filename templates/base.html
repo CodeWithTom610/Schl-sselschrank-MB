@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Meine App{% endblock %}</title>
+    
+    {% with messages = get_flashed_messages(with_categories=true)  %}
+            
+            {% if messages %}
+                
+                {% for category, message in messages %}
+
+                <div class="alert alert-{{category}} alert-dismissible fixed-bottom" role="alert">
+                    <div>{{message}}</div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                {% if category == "toast" %}
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                      <div class="toast-header">
+                        <strong class="me-auto"></strong>
+                        <small>11 mins ago</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                      </div>
+                      <div class="toast-body">
+                        {{message}}
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+    {{ bootstrap.load_css() }}  <!-- Bootstrap einbinden -->
+    
+    <style>
+        body {
+            background-color: #090233;
+            color: white;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hauptinhalt -->
+    <div>
+        {% block content %}
+      
+        {% endblock %}
+    </div>
+
+    {{ bootstrap.load_js() }}  <!-- Bootstrap JavaScript laden -->
+</body>
+</html>

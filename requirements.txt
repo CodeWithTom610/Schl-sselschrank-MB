@@ -1,0 +1,5 @@
+Flask
+bootstrap_flask
+flask_sqlalchemy
+flask_bcrypt
+flask_login

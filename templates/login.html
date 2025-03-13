@@ -1,0 +1,32 @@
+{{ bootstrap.load_css() }}
+{{ bootstrap.load_js() }}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+    </head>
+    <body style="background-color: #090233;">
+
+        <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+            
+            <div class="p-5 bg-light rounded shadow" style="width: 75%; background-color: #090233; color: black;">
+                <div class="mb-4">
+                    <form method="post">
+                        <h1>Bitte Karte eingeben</h1>
+                        <input class="form-control form-control-lg" type="password" name="kartennummer" id="kartennummer">
+                        <br>
+                        <button type="submit" class="btn btn-primary w-100 fs-3 py-3">Absenden</button>
+                        
+                    </form>
+                    <a href="{{url_for('pinLogin')}}" class="btn btn-success w-100 fs-3 py-3">Anmeldung mit PIN</a>
+                </div>
+
+            </div>
+        </div>
+    </body>
+    </html>
+{% endblock %}
