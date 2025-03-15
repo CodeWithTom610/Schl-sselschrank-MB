@@ -221,7 +221,7 @@ def add_key(nummer, name, ort):
     # Gibt eine Erfolgsmeldung zurück
 
 # Route für das Hinzufügen von Benutzern
-@app.route('/add/user/<name>/<kuerzel>/<kartennummer>/<pin>', methods=["GET", "POST"])
+@app.route('/create/user/<name>/<kuerzel>/<kartennummer>/<pin>', methods=["GET", "POST"])
 @login_required
 def add_user(name, kuerzel, kartennummer, pin):
     # Erstellt ein neues Benutzer-Objekt mit den übergebenen Parametern
