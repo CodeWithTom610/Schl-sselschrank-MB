@@ -1,0 +1,71 @@
+{{ bootstrap.load_css() }}
+{{ bootstrap.load_js() }}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ChangeCardNumber</title>
+        <style>
+            body {
+                background-color: #090233;
+            }
+
+            .container {
+                width: 90%;
+                background-color: #090233;
+                color: black;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            input {
+                font-size: 1rem;
+            }
+
+            button, a {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    width: 95%;
+                }
+
+                h1 {
+                    font-size: 1.2rem;
+                }
+
+                input {
+                    font-size: 0.9rem;
+                }
+
+                button, a {
+                    font-size: 0.9rem;
+                    padding: 0.7rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+            <div class="p-5 bg-light rounded shadow container">
+                <div class="mb-4">
+                    <form method="post">
+                        <h1>Bitte Neue Karte eingeben</h1>
+                        <input class="form-control form-control-lg" type="password" name="kartennummer" id="kartennummer">
+                        <br>
+                        <button type="submit" class="btn btn-primary w-100 fs-3 py-3">Absenden</button>
+                    </form>
+                    <a href="{{url_for('persSettings')}}" class="btn btn-danger w-100 fs-3 py-3">Zurück</a>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+{% endblock %}

@@ -1,4 +1,6 @@
-from app import bcrypt
+from flask_bcrypt import Bcrypt
+
+bcrypt = Bcrypt()
 
 # Function to hash a password
 def hash_password(password: str) -> str:

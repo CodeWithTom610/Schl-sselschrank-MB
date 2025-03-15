@@ -1,0 +1,101 @@
+{% from 'bootstrap5/form.html' import render_form %}
+{% extends 'base.html' %}
+
+{% block content %}
+    
+<div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    
+    <div class="p-2 rounded" style="width: 95%; background-color: #cdd7ff; color: black;">
+    
+        <div class="mb-2">
+        
+            <div class="container text-center">
+
+                <div class="row gy-1">
+
+                  <div class="col">
+                    
+                    <div class="card h-100" style="background-color: transparent; border:none;">
+
+                        <button class="btn btn-secondary btn-sm" href="{{url_for('keyFinder')}}" style="padding: 3px;">
+
+                            <h5 style="font-size: 0.8rem;">Nummer</h5>
+                            <img src="/static/key.png" class="img-fluid" style="max-width: 40px; height: auto;"><br>
+                            <br>
+                            <h6 style="font-size: 0.7rem;">{{key.nummer}}</h6>
+
+                        </button>
+
+                    </div>
+
+                  </div>
+
+                  <div class="col">
+                    
+                    <div class="card h-100" style="background-color: transparent; border:none;">
+
+                        <button class="btn btn-secondary btn-sm" href="{{url_for('keyFinder')}}" style="padding: 3px;">
+
+                            <h5 style="font-size: 0.8rem;">Name</h5>
+                            <img src="/static/nameTag.png" class="img-fluid" style="max-width: 40px; height: auto;"><br>
+                            <br>
+                            <h6 style="font-size: 0.7rem;">{{key.schluesselname}}</h6>
+
+                        </button>
+
+                    </div>
+
+                  </div>
+
+                  <div class="col">
+                    
+                    <div class="card h-100" style="background-color: transparent; border:none;">
+
+                        <button class="btn btn-secondary btn-sm" href="{{url_for('keyFinder')}}" style="padding: 3px;">
+
+                            <h5 style="font-size: 0.8rem;">Ort</h5>
+                            <img src="/static/finder.png" class="img-fluid" style="max-width: 40px; height: auto;"><br>
+                            <br>
+                            <h6 style="font-size: 0.7rem;">{{key.ort}}</h6>
+
+                        </button>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <!-- Abstand zwischen Grid und "Tür Öffnen" reduziert -->
+                <div class="mt-1"></div>
+
+                <div class="row gy-1">
+
+                    <a class="btn btn-success btn-sm" href="{{url_for('keyFinder')}}" style="padding: 3px;">
+
+                        <img src="/static/doorOpen.png" class="img-fluid" style="max-width: 40px; height: auto;"><br>
+                        <br>
+                        <h6 style="font-size: 0.7rem;">Tür Öffnen</h6>
+    
+                    </a>
+
+                </div>
+
+                <!-- Abstand zwischen "Tür Öffnen" und "Zurück" reduziert -->
+                <div class="row gy-0 mt-2">
+
+                    <a href="{{url_for('keyFinder')}}" class="btn btn-danger btn-sm" style="padding: 3px;">
+                        <h5 style="font-size: 0.8rem;">Zurück</h5>
+                    </a>
+
+                </div>
+
+              </div>
+        
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

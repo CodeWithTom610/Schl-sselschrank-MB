@@ -1,0 +1,1 @@
+mache das div mit dem grid, den butons und labels alles kleiner, so dass auf einem 5zoll bildschirm im QUERFORMAT alles schick und so wie jetzt aussieht aber nicht so groß

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        body {
+            background-color: #090233;
+        }
+
+        .container {
+            width: 90%;
+            background-color: #090233;
+            color: black;
+        }
+
+        h1 {
+            font-size: 1.2rem; /* Kleinere Schriftgröße */
+            margin-bottom: 0.5rem; /* Weniger Abstand */
+        }
+
+        input {
+            font-size: 0.9rem; /* Kleinere Schriftgröße */
+            padding: 0.5rem; /* Weniger Padding */
+            margin-bottom: 1rem; /* Abstand zum nächsten Element */
+        }
+
+        button, a {
+            font-size: 0.9rem; /* Kleinere Schriftgröße */
+            padding: 0.6rem; /* Weniger Padding */
+            margin-bottom: 0.5rem; /* Abstand zwischen Buttons */
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 1rem; /* Noch kleinere Schriftgröße */
+                margin-bottom: 0.4rem; /* Weniger Abstand */
+            }
+
+            input {
+                font-size: 0.8rem; /* Noch kleinere Schriftgröße */
+                padding: 0.4rem; /* Weniger Padding */
+                margin-bottom: 0.8rem; /* Weniger Abstand */
+            }
+
+            button, a {
+                font-size: 0.8rem; /* Noch kleinere Schriftgröße */
+                padding: 0.5rem; /* Weniger Padding */
+                margin-bottom: 0.4rem; /* Weniger Abstand */
+            }
+        }
+    </style>
+
+    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+        <div class="p-4 bg-light rounded shadow container">
+            <div class="mb-3">
+                <form method="post">
+                    <h1>Bitte Neue Pin Eingeben</h1>
+                    <input class="form-control form-control-sm" type="password" name="pin" id="pin">
+                    <button type="submit" class="btn btn-primary w-100">Absenden</button>
+                </form>
+                <a href="{{url_for('persSettings')}}" class="btn btn-danger w-100">Zurück</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

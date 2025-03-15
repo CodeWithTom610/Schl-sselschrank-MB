@@ -1,53 +1,90 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>UserPanel</title>
-        </head>
-        <body style="background-color: #e4eaff; font-size:large">
-            <div class="d-flex flex-column justify-content-center align-items-center vh-100">
-                <h1 class="text-center" style="margin-bottom:50px; font-size: 40px;">Hallo,<br>{{current_user.name}}<br></h1>
-                <div class="container text-center" style="color: white;">
-                    <div class="row">
-                        <div class="col-12 col-md-6 col-lg-3 mb-4">
-                            <div class="card h-100" style="background-color: transparent; border:none;">
-                                <a class="btn btn-secondary" href="{{url_for('keyFinder')}}">
-                                    <img src="/static/key.png" class="img-fluid" style="max-width: 100px; height: auto;"><br>
-                                    <h2>Schlüssel entnehmen</h2>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3 mb-4">
-                            <div class="card h-100" style="background-color: transparent; border:none;">
-                                <a class="btn btn-secondary">
-                                    <img src="/static/user.png" class="img-fluid" style="max-width: 100px; height: auto;"><br>
-                                    <h2>Persönliche Einstellungen ändern</h2>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3 mb-4">
-                            <div class="card h-100" style="background-color: transparent; border:none;">
-                                <a class="btn btn-secondary">
-                                    <img src="/static/settings.png" class="img-fluid" style="max-width: 100px; height: auto;"><br>
-                                    <h2>Systemeinstellungen</h2>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3 mb-4">
-                            <div class="card h-100" style="background-color: transparent; border:none;">
-                                <a class="btn btn-secondary" href="{{url_for('logout')}}">
-                                    <img src="/static/logout.png" class="img-fluid" style="max-width: 100px; height: auto;"><br>
-                                    <h2>Ausloggen</h2>
-                                </a>
-                            </div>
-                        </div>
+    <style>
+        /* Standard-Stile */
+        body {
+            background-color: #e4eaff;
+            font-size: small;
+            color: black;
+        }
+
+        .card img {
+            max-width: 50px; /* Kleinere Icons */
+            height: auto;
+        }
+
+        h1 {
+            font-size: 1.5rem; /* Kleinere Schriftgröße */
+        }
+
+        h2 {
+            font-size: 0.9rem; /* Kleinere Schriftgröße */
+        }
+
+        .btn {
+            font-size: 0.8rem; /* Kleinere Buttons */
+            padding: 0.5rem; /* Weniger Padding */
+        }
+
+        /* Anpassungen für kleine Bildschirme */
+        @media (max-width: 768px) {
+            .card img {
+                max-width: 40px; /* Noch kleinere Icons */
+            }
+
+            h1 {
+                font-size: 1.2rem; /* Noch kleinere Schriftgröße */
+            }
+
+            h2 {
+                font-size: 0.8rem; /* Noch kleinere Schriftgröße */
+            }
+
+            .btn {
+                font-size: 0.7rem; /* Noch kleinere Buttons */
+                padding: 0.4rem; /* Weniger Padding */
+            }
+        }
+    </style>
+
+    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+        <h1 class="text-center" style="margin-bottom:30px;">Hallo,<br>{{current_user.name}}<br></h1>
+        <div class="container text-center" style="color: white;">
+            <div class="row gy-2">
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                    <div class="card h-100" style="background-color: transparent; border:none;">
+                        <a class="btn btn-secondary" href="{{url_for('keyFinder')}}">
+                            <img src="/static/key.png" class="img-fluid"><br>
+                            <h2>Schlüssel entnehmen</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                    <div class="card h-100" style="background-color: transparent; border:none;">
+                        <a class="btn btn-secondary" href="{{url_for('persSettings')}}">
+                            <img src="/static/user.png" class="img-fluid"><br>
+                            <h2>Persönliche Einstellungen ändern</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                    <div class="card h-100" style="background-color: transparent; border:none;">
+                        <a class="btn btn-secondary" href="{{url_for('systemSettings')}}">
+                            <img src="/static/settings.png" class="img-fluid"><br>
+                            <h2>Systemeinstellungen</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-2">
+                    <div class="card h-100" style="background-color: transparent; border:none;">
+                        <a class="btn btn-secondary" href="{{url_for('logout')}}">
+                            <img src="/static/logout.png" class="img-fluid"><br>
+                            <h2>Ausloggen</h2>
+                        </a>
                     </div>
                 </div>
             </div>
-        </body>
-    </html>
+        </div>
+    </div>
 {% endblock %}

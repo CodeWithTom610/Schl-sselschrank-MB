@@ -1,0 +1,37 @@
+{% from 'bootstrap5/form.html' import render_form %}
+{% extends 'base.html' %}
+
+{% block content %}
+    
+<body style="background-color:#e4eaff; font-size:small;">
+
+    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    
+        <div class="p-3 rounded" style="width: 90%; background-color: #cdd7ff; color: black;">
+        
+            <div class="mb-3">
+            
+                <form method="post">
+                
+                    <h1 style="font-size: 1.2rem;">Schlüsslnummer</h1>
+                    <input class="form-control form-control-sm" type="number" name="nummer" id="nummer" style="font-size: 0.9rem;">
+                    <br>
+                    <h1 style="font-size: 1.2rem;">Schlüsselname</h1>
+                    <input class="form-control form-control-sm" type="text" name="schluesselname" id="schluesselname" style="font-size: 0.9rem;">
+                    <br>
+                    <button type="submit" class="btn btn-dark w-100" style="font-size: 1rem; padding: 10px;">Suche Schlüssel</button>
+                    <br>
+                    <br>
+                    <a href="{{url_for('userPanel')}}" class="btn btn-danger w-100" style="font-size: 1rem; padding: 10px;">Zurück</a>
+                    
+                </form>
+            
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+{% endblock %}
