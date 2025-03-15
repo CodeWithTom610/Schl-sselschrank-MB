@@ -208,6 +208,50 @@ def shutdown():
         return os.system("shutdown /s /t 1")  # Shutdown-Befehl für Windows
     else:
         return os.system("sudo shutdown now")  # Shutdown-Befehl für Linux
+    
+# Route für das Hinzufügen von Schlüsseln
+@app.route('/add/key/<nummer>/<name>/<ort>', methods=["GET", "POST"])
+@login_required
+def add_key(nummer, name, ort):
+    # Erstellt ein neues Schlüssel-Objekt mit den übergebenen Parametern
+    new_key = Schlüssel(nummer=nummer, schluesselname=name, ort=ort)
+    db.session.add(new_key)  # Fügt das neue Schlüssel-Objekt zur Datenbank hinzu
+    db.session.commit()  # Speichert die Änderungen in der Datenbank
+    return f"Schlüssel wurde erfolgreich hinzugefügt mit der Nummer {nummer}, dem Namen {name} und dem Ort {ort}"
+    # Gibt eine Erfolgsmeldung zurück
+
+# Route für das Hinzufügen von Benutzern
+@app.route('/add/user/<name>/<kuerzel>/<kartennummer>/<pin>', methods=["GET", "POST"])
+@login_required
+def add_user(name, kuerzel, kartennummer, pin):
+    # Erstellt ein neues Benutzer-Objekt mit den übergebenen Parametern
+    new_user = User(name=name, kuerzel=kuerzel, kartennummer=kartennummer, pin=hash_password(pin))
+    db.session.add(new_user)  # Fügt das neue Benutzer-Objekt zur Datenbank hinzu
+    db.session.commit()  # Speichert die Änderungen in der Datenbank
+    return f"Benutzer wurde erfolgreich hinzugefügt mit dem Namen {name}, dem Kürzel {kuerzel}, der Kartennummer {kartennummer} und der PIN {pin}"
+    # Gibt eine Erfolgsmeldung zurück
+
+# Route für das Löschen von Schlüsseln
+@app.route('/delete/key/<nummer>', methods=["GET", "POST"])
+@login_required
+def delete_key(nummer):
+    # Sucht den Schlüssel anhand der Nummer in der Datenbank
+    key = Schlüssel.query.filter_by(nummer=nummer).first()
+    db.session.delete(key)  # Löscht den gefundenen Schlüssel aus der Datenbank
+    db.session.commit()  # Speichert die Änderungen in der Datenbank
+    return f"Schlüssel mit der Nummer {nummer} wurde erfolgreich gelöscht"
+    # Gibt eine Erfolgsmeldung zurück
+
+# Route für das Löschen von Benutzern
+@app.route('/delete/user/<name>', methods=["GET", "POST"])
+@login_required
+def delete_user(name):
+    # Sucht den Benutzer anhand des Namens in der Datenbank
+    user = User.query.filter_by(name=name).first()
+    db.session.delete(user)  # Löscht den gefundenen Benutzer aus der Datenbank
+    db.session.commit()  # Speichert die Änderungen in der Datenbank
+    return f"Benutzer mit dem Namen {name} wurde erfolgreich gelöscht"
+    # Gibt eine Erfolgsmeldung zurück
 
 # Starte die Flask-App
 if __name__ == "__main__":
