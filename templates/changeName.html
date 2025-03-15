@@ -1,28 +1,42 @@
 {{ bootstrap.load_css() }}
 {{ bootstrap.load_js() }}
+<!-- Lädt Bootstrap CSS und JavaScript für Styling und Funktionalität -->
 
 {% block content %}
+<!-- Beginnt den Block für den Hauptinhalt, der in die Basisvorlage eingefügt wird -->
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
+        <!-- Titel der Seite -->
     </head>
     <body style="background-color: #090233; color: black;">
+        <!-- Dunkler Hintergrund und schwarzer Text -->
 
         <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+            <!-- Flexbox-Container, der den Inhalt vertikal und horizontal zentriert -->
             
             <div class="p-3 bg-light rounded shadow" style="width: 90%; background-color: #090233; color: black;">
+                <!-- Container mit Polsterung, hellem Hintergrund, abgerundeten Ecken und Schatten -->
                 <div class="mb-3">
+                    <!-- Abstand nach unten -->
                     <form method="post">
+                        <!-- Formular, das Daten per POST-Methode sendet -->
                         <h1 style="font-size: 1.2rem; text-align: center; color: #000000;">Bitte neuen Namen eingeben</h1>
+                        <!-- Überschrift mit mittlerer Schriftgröße und zentriertem Text -->
                         <input class="form-control form-control-sm" type="password" name="name" id="name" style="font-size: 0.9rem;">
+                        <!-- Eingabefeld für den Namen mit Bootstrap-Klassen für Styling -->
                         <br>
                         <button type="submit" class="btn btn-primary w-100" style="font-size: 0.9rem; padding: 0.6rem;">Absenden</button>
+                        <!-- Absenden-Button mit Bootstrap-Klassen für Styling -->
                     </form>
                     <div class="mt-2">
+                        <!-- Abstand nach oben -->
                         <a href="{{url_for('persSettings')}}" class="btn btn-danger w-100" style="font-size: 0.9rem; padding: 0.6rem;">Zurück</a>
+                        <!-- Link zurück zur Seite "persSettings" mit rotem Button-Styling -->
                     </div>
                 </div>
             </div>
@@ -30,3 +44,4 @@
     </body>
     </html>
 {% endblock %}
+<!-- Ende des Inhaltsblocks -->

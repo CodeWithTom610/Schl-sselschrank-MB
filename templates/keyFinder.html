@@ -1,37 +1,58 @@
 {% from 'bootstrap5/form.html' import render_form %}
+<!-- Importiert eine Bootstrap-Hilfsfunktion für Formulare -->
+
 {% extends 'base.html' %}
+<!-- Erweitert die Basisvorlage 'base.html', um ein konsistentes Layout zu gewährleisten -->
 
 {% block content %}
+<!-- Beginnt den Block für den Hauptinhalt, der in die Basisvorlage eingefügt wird -->
     
 <body style="background-color:#e4eaff; font-size:small;">
+    <!-- Heller Hintergrund und kleine Schriftgröße für die Seite -->
 
     <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+        <!-- Flexbox-Container, der den Inhalt vertikal und horizontal zentriert -->
     
         <div class="p-3 rounded" style="width: 90%; background-color: #cdd7ff; color: black;">
-        
+            <!-- Container mit Polsterung, abgerundeten Ecken und hellem Hintergrund -->
+
             <div class="mb-3">
-            
+                <!-- Abstand nach unten -->
+
                 <form method="post">
+                    <!-- Formular, das Daten per POST-Methode sendet -->
                 
                     <h1 style="font-size: 1.2rem;">Schlüsslnummer</h1>
+                    <!-- Überschrift für die Eingabe der Schlüsselnnummer -->
                     <input class="form-control form-control-sm" type="number" name="nummer" id="nummer" style="font-size: 0.9rem;">
+                    <!-- Eingabefeld für die Schlüsselnnummer mit Bootstrap-Klassen für Styling -->
                     <br>
                     <h1 style="font-size: 1.2rem;">Schlüsselname</h1>
+                    <!-- Überschrift für die Eingabe des Schlüsselnamens -->
                     <input class="form-control form-control-sm" type="text" name="schluesselname" id="schluesselname" style="font-size: 0.9rem;">
+                    <!-- Eingabefeld für den Schlüsselnamen mit Bootstrap-Klassen für Styling -->
                     <br>
                     <button type="submit" class="btn btn-dark w-100" style="font-size: 1rem; padding: 10px;">Suche Schlüssel</button>
+                    <!-- Button zum Absenden des Formulars mit dunklem Styling -->
                     <br>
                     <br>
                     <a href="{{url_for('userPanel')}}" class="btn btn-danger w-100" style="font-size: 1rem; padding: 10px;">Zurück</a>
+                    <!-- Link zurück zur Seite "userPanel" mit rotem Button-Styling -->
                     
                 </form>
+                <!-- Ende des Formulars -->
             
             </div>
+            <!-- Ende des Containers für das Formular -->
 
         </div>
+        <!-- Ende des äußeren Containers -->
 
     </div>
+    <!-- Ende des Flexbox-Containers -->
 
 </body>
+<!-- Ende des Body-Inhalts -->
 
 {% endblock %}
+<!-- Ende des Inhaltsblocks -->

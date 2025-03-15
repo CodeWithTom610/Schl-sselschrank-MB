@@ -1,71 +1,95 @@
 {{ bootstrap.load_css() }}
 {{ bootstrap.load_js() }}
+<!-- Lädt Bootstrap CSS und JavaScript für Styling und Funktionalität -->
 
 {% block content %}
+<!-- Beginnt den Block für den Hauptinhalt, der in die Basisvorlage eingefügt wird -->
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ChangeCardNumber</title>
+        <!-- Titel der Seite -->
+
         <style>
             body {
                 background-color: #090233;
+                /* Dunkler Hintergrund für die Seite */
             }
 
             .container {
                 width: 90%;
                 background-color: #090233;
                 color: black;
+                /* Container mit dunklem Hintergrund und schwarzem Text */
             }
 
             h1 {
                 font-size: 1.5rem;
+                /* Überschrift mit mittlerer Schriftgröße */
             }
 
             input {
                 font-size: 1rem;
+                /* Eingabefeld mit normaler Schriftgröße */
             }
 
             button, a {
                 font-size: 1rem;
                 padding: 0.8rem;
+                /* Buttons und Links mit einheitlicher Schriftgröße und Polsterung */
             }
 
             @media (max-width: 768px) {
+                /* Anpassungen für kleinere Bildschirme */
                 .container {
                     width: 95%;
+                    /* Container wird breiter */
                 }
 
                 h1 {
                     font-size: 1.2rem;
+                    /* Kleinere Schriftgröße für die Überschrift */
                 }
 
                 input {
                     font-size: 0.9rem;
+                    /* Kleinere Schriftgröße für Eingabefelder */
                 }
 
                 button, a {
                     font-size: 0.9rem;
                     padding: 0.7rem;
+                    /* Kleinere Schriftgröße und Polsterung für Buttons und Links */
                 }
             }
         </style>
     </head>
     <body>
         <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+            <!-- Flexbox-Container, der den Inhalt vertikal und horizontal zentriert -->
             <div class="p-5 bg-light rounded shadow container">
+                <!-- Container mit Polsterung, hellem Hintergrund, abgerundeten Ecken und Schatten -->
                 <div class="mb-4">
+                    <!-- Abstand nach unten -->
                     <form method="post">
+                        <!-- Formular, das Daten per POST-Methode sendet -->
                         <h1>Bitte Neue Karte eingeben</h1>
+                        <!-- Überschrift -->
                         <input class="form-control form-control-lg" type="password" name="kartennummer" id="kartennummer">
+                        <!-- Eingabefeld für die Kartennummer mit Bootstrap-Klassen für Styling -->
                         <br>
                         <button type="submit" class="btn btn-primary w-100 fs-3 py-3">Absenden</button>
+                        <!-- Absenden-Button mit Bootstrap-Klassen für Styling -->
                     </form>
                     <a href="{{url_for('persSettings')}}" class="btn btn-danger w-100 fs-3 py-3">Zurück</a>
+                    <!-- Link zurück zur Seite "persSettings" mit rotem Button-Styling -->
                 </div>
             </div>
         </div>
     </body>
     </html>
 {% endblock %}
+<!-- Ende des Inhaltsblocks -->

@@ -1,35 +1,57 @@
 {% extends 'base.html' %}
+<!-- Erweitert die Basisvorlage 'base.html', um ein konsistentes Layout zu gewährleisten -->
+
 {{ bootstrap.load_css() }}
 {{ bootstrap.load_js() }}
+<!-- Lädt Bootstrap CSS und JavaScript für Styling und Funktionalität -->
 
 {% block content %}
+<!-- Beginnt den Block für den Hauptinhalt, der in die Basisvorlage eingefügt wird -->
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
+        <!-- Titel der Seite -->
     </head>
     <body style="background-color: #090233;">
+        <!-- Dunkler Hintergrund für die Seite -->
 
         <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+            <!-- Flexbox-Container, der den Inhalt vertikal und horizontal zentriert -->
             
             <div class="p-3 bg-light rounded shadow" style="width: 85%; background-color: #090233; color: black;">
+                <!-- Container mit Polsterung, abgerundeten Ecken, Schatten und dunklem Hintergrund -->
+
                 <div class="mb-2">
+                    <!-- Abstand nach unten -->
+
                     <form method="post">
+                        <!-- Formular, das Daten per POST-Methode sendet -->
+
                         <h1 style="font-size: 1rem; text-align: center; color: #000000; margin-bottom: 0.4rem;">Kürzel</h1>
+                        <!-- Überschrift für das Kürzel -->
                         <input class="form-control form-control-sm" type="text" name="kuerzel" id="kuerzel" style="font-size: 0.8rem; margin-bottom: 0.8rem;">
-                        
+                        <!-- Eingabefeld für das Kürzel mit Bootstrap-Klassen für Styling -->
+
                         <h1 style="font-size: 1rem; text-align: center; color: #000000; margin-bottom: 0.4rem;">PIN</h1>
+                        <!-- Überschrift für die PIN -->
                         <input class="form-control form-control-sm" type="password" name="pin" id="pin" style="font-size: 0.8rem; margin-bottom: 0.8rem;">
-                        
+                        <!-- Eingabefeld für die PIN mit Bootstrap-Klassen für Styling -->
+
                         <button type="submit" class="btn btn-primary w-100" style="font-size: 0.8rem; padding: 0.5rem; margin-bottom: 0.4rem;">Absenden</button>
-                        
+                        <!-- Absenden-Button mit Bootstrap-Klassen für Styling -->
+
                         <a href="{{url_for('login')}}" class="btn btn-danger w-100" style="font-size: 0.8rem; padding: 0.5rem;">Zurück</a>
+                        <!-- Link zurück zur Login-Seite mit rotem Button-Styling -->
                     </form>
+                    <!-- Ende des Formulars -->
                 </div>
             </div>
         </div>
     </body>
     </html>
 {% endblock %}
+<!-- Ende des Inhaltsblocks -->

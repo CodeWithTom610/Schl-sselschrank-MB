@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
+<!-- Erweitert die Basisvorlage 'base.html', um ein konsistentes Layout zu gewährleisten -->
 
 {% block content %}
+<!-- Beginnt den Block für den Hauptinhalt, der in die Basisvorlage eingefügt wird -->
+
     <style>
         body {
             background-color: #090233;
+            /* Dunkler Hintergrund für die Seite */
         }
 
         .container {
             width: 90%;
             background-color: #090233;
             color: black;
+            /* Container mit dunklem Hintergrund und schwarzem Text */
         }
 
         h1 {
@@ -30,8 +35,10 @@
         }
 
         @media (max-width: 768px) {
+            /* Anpassungen für kleinere Bildschirme */
             .container {
                 width: 95%;
+                /* Container wird breiter */
             }
 
             h1 {
@@ -54,15 +61,24 @@
     </style>
 
     <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+        <!-- Flexbox-Container, der den Inhalt vertikal und horizontal zentriert -->
         <div class="p-4 bg-light rounded shadow container">
+            <!-- Container mit Polsterung, hellem Hintergrund, abgerundeten Ecken und Schatten -->
             <div class="mb-3">
+                <!-- Abstand nach unten -->
                 <form method="post">
+                    <!-- Formular, das Daten per POST-Methode sendet -->
                     <h1>Bitte Neue Pin Eingeben</h1>
+                    <!-- Überschrift -->
                     <input class="form-control form-control-sm" type="password" name="pin" id="pin">
+                    <!-- Eingabefeld für die PIN mit Bootstrap-Klassen für Styling -->
                     <button type="submit" class="btn btn-primary w-100">Absenden</button>
+                    <!-- Absenden-Button mit Bootstrap-Klassen für Styling -->
                 </form>
                 <a href="{{url_for('persSettings')}}" class="btn btn-danger w-100">Zurück</a>
+                <!-- Link zurück zur Seite "persSettings" mit rotem Button-Styling -->
             </div>
         </div>
     </div>
 {% endblock %}
+<!-- Ende des Inhaltsblocks -->

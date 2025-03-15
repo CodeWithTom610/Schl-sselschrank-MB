@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
+<!-- Erweitert die Basisvorlage 'base.html', um ein konsistentes Layout zu gewährleisten -->
 
 {% block content %}
+<!-- Beginnt den Block für den Hauptinhalt, der in die Basisvorlage eingefügt wird -->
+
     <style>
         /* Standard-Stile */
         body {
             background-color: #e4eaff;
+            /* Heller Hintergrund für die Seite */
             font-size: small;
             color: black;
         }
@@ -15,11 +19,11 @@
         }
 
         h1 {
-            font-size: 1.5rem; /* Kleinere Schriftgröße */
+            font-size: 1.5rem; /* Überschrift mit mittlerer Schriftgröße */
         }
 
         h2 {
-            font-size: 0.9rem; /* Kleinere Schriftgröße */
+            font-size: 0.9rem; /* Kleinere Schriftgröße für die Kartenbeschriftung */
         }
 
         .btn {
@@ -49,38 +53,65 @@
     </style>
 
     <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+        <!-- Flexbox-Container, der den Inhalt vertikal und horizontal zentriert -->
         <h1 class="text-center" style="margin-bottom:30px;">Hallo,<br>{{current_user.name}}<br></h1>
+        <!-- Begrüßung des aktuellen Benutzers mit seinem Namen -->
+
         <div class="container text-center" style="color: white;">
+            <!-- Zentrierter Container für den Inhalt -->
+
             <div class="row gy-2">
+                <!-- Grid-Layout mit vertikalem Abstand zwischen den Karten -->
+
                 <div class="col-6 col-md-4 col-lg-3 mb-2">
+                    <!-- Erste Spalte: Schlüssel entnehmen -->
                     <div class="card h-100" style="background-color: transparent; border:none;">
+                        <!-- Karte ohne Hintergrund und Rahmen -->
                         <a class="btn btn-secondary" href="{{url_for('keyFinder')}}">
+                            <!-- Button mit Link zur Funktion "Schlüssel entnehmen" -->
                             <img src="/static/key.png" class="img-fluid"><br>
+                            <!-- Icon für Schlüssel -->
                             <h2>Schlüssel entnehmen</h2>
+                            <!-- Beschriftung -->
                         </a>
                     </div>
                 </div>
+
                 <div class="col-6 col-md-4 col-lg-3 mb-2">
+                    <!-- Zweite Spalte: Persönliche Einstellungen -->
                     <div class="card h-100" style="background-color: transparent; border:none;">
                         <a class="btn btn-secondary" href="{{url_for('persSettings')}}">
+                            <!-- Button mit Link zur Funktion "Persönliche Einstellungen ändern" -->
                             <img src="/static/user.png" class="img-fluid"><br>
+                            <!-- Icon für persönliche Einstellungen -->
                             <h2>Persönliche Einstellungen ändern</h2>
+                            <!-- Beschriftung -->
                         </a>
                     </div>
                 </div>
+
                 <div class="col-6 col-md-4 col-lg-3 mb-2">
+                    <!-- Dritte Spalte: Systemeinstellungen -->
                     <div class="card h-100" style="background-color: transparent; border:none;">
                         <a class="btn btn-secondary" href="{{url_for('systemSettings')}}">
+                            <!-- Button mit Link zur Funktion "Systemeinstellungen" -->
                             <img src="/static/settings.png" class="img-fluid"><br>
+                            <!-- Icon für Systemeinstellungen -->
                             <h2>Systemeinstellungen</h2>
+                            <!-- Beschriftung -->
                         </a>
                     </div>
                 </div>
+
                 <div class="col-6 col-md-4 col-lg-3 mb-2">
+                    <!-- Vierte Spalte: Ausloggen -->
                     <div class="card h-100" style="background-color: transparent; border:none;">
                         <a class="btn btn-secondary" href="{{url_for('logout')}}">
+                            <!-- Button mit Link zur Funktion "Ausloggen" -->
                             <img src="/static/logout.png" class="img-fluid"><br>
+                            <!-- Icon für Ausloggen -->
                             <h2>Ausloggen</h2>
+                            <!-- Beschriftung -->
                         </a>
                     </div>
                 </div>
@@ -88,3 +119,4 @@
         </div>
     </div>
 {% endblock %}
+<!-- Ende des Inhaltsblocks -->
