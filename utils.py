@@ -1,4 +1,6 @@
 from flask_bcrypt import Bcrypt
+import platform
+import os
 
 bcrypt = Bcrypt()
 
@@ -30,3 +32,11 @@ def check_password(password: str, hashed_password: str) -> bool:
     """
     # Compare the plain password with the hashed password
     return bcrypt.check_password_hash(hashed_password, password)
+
+
+def shutdown_system():
+    o_s = platform.system()  # Betriebssystem ermitteln
+    if o_s == "Windows":
+        return os.system("shutdown /s /t 1")  # Shutdown-Befehl für Windows
+    else:
+        return os.system("sudo shutdown now")  # Shutdown-Befehl für Linux

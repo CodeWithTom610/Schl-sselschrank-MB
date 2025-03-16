@@ -8,7 +8,7 @@ from wtforms import StringField, PasswordField, IntegerField, SubmitField  # For
 from wtforms.validators import Length, DataRequired  # Validierungsregeln für Formulare
 from flask_sqlalchemy import SQLAlchemy  # SQLAlchemy für Datenbankintegration
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user  # Login-Management
-from utils import hash_password, check_password  # Benutzerdefinierte Funktionen für Passwort-Hashing
+from utils import hash_password, check_password, shutdown_system  # Hilfsfunktionen für Passwort-Hashing und System-Shutdown
 from flask_bcrypt import Bcrypt  # Bcrypt für Passwort-Hashing
 
 # Initialisiere die Flask-App
@@ -203,11 +203,8 @@ def systemDebug():
 @app.route('/system/shutdown', methods=["GET", "POST"])
 @login_required
 def shutdown():
-    o_s = platform.system()  # Betriebssystem ermitteln
-    if o_s == "Windows":
-        return os.system("shutdown /s /t 1")  # Shutdown-Befehl für Windows
-    else:
-        return os.system("sudo shutdown now")  # Shutdown-Befehl für Linux
+    shutdown_system()
+    return "System wird heruntergefahren"  # Erfolgsmeldung
     
 # Route für das Hinzufügen von Schlüsseln
 @app.route('/add/key/<nummer>/<name>/<ort>', methods=["GET", "POST"])
