@@ -1,0 +1,108 @@
+{% from 'bootstrap5/form.html' import render_form %}
+<!-- Importiert eine Bootstrap-Formular-Hilfsfunktion -->
+
+{% extends 'base.html' %}
+<!-- Erweitert die Basisvorlage 'base.html', um ein konsistentes Layout zu gewährleisten -->
+
+{% block content %}
+<!-- Beginnt den Block für den Hauptinhalt, der in die Basisvorlage eingefügt wird -->
+    
+<div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    <!-- Flexbox-Container, der den Inhalt vertikal und horizontal zentriert -->
+    
+    <div class="p-2 rounded" style="width: 95%; background-color: #cdd7ff; color: black;">
+        <!-- Container mit Polsterung, abgerundeten Ecken und hellem Hintergrund -->
+
+        <div class="mb-2">
+            <!-- Abstand nach unten -->
+
+            <div class="container text-center">
+                <!-- Zentrierter Container für den Inhalt -->
+
+                <div class="row gy-1">
+                    <!-- Grid-Layout mit vertikalem Abstand zwischen den Zeilen -->
+
+                  <div class="col">
+                    <!-- Erste Spalte: Schlüsselnummer -->
+                    <div class="card h-100" style="background-color: transparent; border:none;">
+                        <!-- Karte ohne Hintergrund und Rahmen -->
+                        <button class="btn btn-secondary btn-sm" href="{{url_for('keyFinder')}}" style="padding: 3px;">
+                            <!-- Sekundärer Button mit kleinem Padding -->
+                            <h5 style="font-size: 0.8rem;">Nummer</h5>
+                            <!-- Titel der Karte -->
+                            <img src="/static/key.png" class="img-fluid" style="max-width: 40px; height: auto;">
+                            <!-- Schlüssel-Icon -->
+                            <br><br>
+                            <h6 style="font-size: 0.7rem;">{{key.nummer}}</h6>
+                            <!-- Schlüsselnummer -->
+                        </button>
+                    </div>
+                  </div>
+
+                  <div class="col">
+                    <!-- Zweite Spalte: Schlüsselname -->
+                    <div class="card h-100" style="background-color: transparent; border:none;">
+                        <button class="btn btn-secondary btn-sm" href="{{url_for('keyFinder')}}" style="padding: 3px;">
+                            <h5 style="font-size: 0.8rem;">Name</h5>
+                            <!-- Titel der Karte -->
+                            <img src="/static/nameTag.png" class="img-fluid" style="max-width: 40px; height: auto;">
+                            <!-- Name-Icon -->
+                            <br><br>
+                            <h6 style="font-size: 0.7rem;">{{key.schluesselname}}</h6>
+                            <!-- Schlüsselname -->
+                        </button>
+                    </div>
+                  </div>
+
+                  <div class="col">
+                    <!-- Dritte Spalte: Ort -->
+                    <div class="card h-100" style="background-color: transparent; border:none;">
+                        <button class="btn btn-secondary btn-sm" href="{{url_for('keyFinder')}}" style="padding: 3px;">
+                            <h5 style="font-size: 0.8rem;">Ort</h5>
+                            <!-- Titel der Karte -->
+                            <img src="/static/finder.png" class="img-fluid" style="max-width: 40px; height: auto;">
+                            <!-- Ort-Icon -->
+                            <br><br>
+                            <h6 style="font-size: 0.7rem;">{{key.ort}}</h6>
+                            <!-- Schlüsselort -->
+                        </button>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Abstand zwischen Grid und "Tür Öffnen" reduziert -->
+                <div class="mt-1"></div>
+
+                <div class="row gy-1">
+                    <!-- Zeile für die Aktion "Tür Öffnen" -->
+                    <a class="btn btn-success btn-sm" href="{{url_for('keyFinder')}}" style="padding: 3px;">
+                        <!-- Grüner Button mit kleinem Padding -->
+                        <img src="/static/doorOpen.png" class="img-fluid" style="max-width: 40px; height: auto;">
+                        <!-- Tür-Öffnen-Icon -->
+                        <br><br>
+                        <h6 style="font-size: 0.7rem;">Tür Öffnen</h6>
+                        <!-- Beschriftung -->
+                    </a>
+                </div>
+
+                <!-- Abstand zwischen "Tür Öffnen" und "Zurück" reduziert -->
+                <div class="row gy-0 mt-2">
+                    <!-- Zeile für die Aktion "Zurück" -->
+                    <a href="{{url_for('keyFinder')}}" class="btn btn-danger btn-sm" style="padding: 3px;">
+                        <!-- Roter Button mit kleinem Padding -->
+                        <h5 style="font-size: 0.8rem;">Zurück</h5>
+                        <!-- Beschriftung -->
+                    </a>
+                </div>
+
+              </div>
+        
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+<!-- Ende des Inhaltsblocks -->

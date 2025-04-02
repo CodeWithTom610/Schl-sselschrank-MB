@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #9adfff;
+        /* Heller blauer Hintergrund für die Seite */
+    }
+
+    .container-fluid {
+        max-width: 95%;
+        background-color: #61b6dd;
+        color: black;
+        /* Container mit hellem Hintergrund und schwarzem Text */
+    }
+
+    .card img {
+        max-width: 60px; /* Kleinere Icons */
+        height: auto;
+    }
+
+    h1, h2 {
+        font-size: 1rem; /* Kleinere Schriftgröße */
+    }
+
+    .btn {
+        font-size: 0.8rem; /* Kleinere Buttons */
+        padding: 0.6rem; /* Weniger Padding */
+    }
+
+    @media (max-width: 768px) {
+        /* Anpassungen für kleinere Bildschirme */
+        .card img {
+            max-width: 50px; /* Noch kleinere Icons */
+        }
+
+        h1, h2 {
+            font-size: 0.9rem; /* Noch kleinere Schriftgröße */
+        }
+
+        .btn {
+            font-size: 0.7rem; /* Noch kleinere Buttons */
+            padding: 0.5rem; /* Weniger Padding */
+        }
+    }
+</style>
+
+<div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    <!-- Flexbox-Container, der den Inhalt vertikal und horizontal zentriert -->
+    <h1 style="color: black; text-align: center; font-size: 1rem;">Debug Modus</h1>
+    <!-- Überschrift für die Seite -->
+
+    <div class="p-2 rounded container-fluid">
+        <!-- Container mit Polsterung, abgerundeten Ecken und hellem Hintergrund -->
+
+        <div class="mb-3">
+            <!-- Abstand nach unten -->
+
+            <div class="container text-center">
+                <!-- Zentrierter Container für den Inhalt -->
+
+                <div class="row g-2">
+                    <!-- Grid-Layout mit Abstand zwischen den Karten -->
+
+                    <div class="col">
+                        <!-- Erste Spalte: Debug-Modus -->
+                        <a class="btn btn-primary"> Tür öffnen</a>
+                    </div>
+
+                    <div class="col">
+                        <!-- Zweite Spalte: Debug-Modus -->
+                        <a class="btn btn-danger"> Tür schließen</a>
+                    </div>
+            </div>
+            <div class="row g-2">
+                    <div class="col">
+                        <!-- Dritte Spalte: Debug-Modus -->
+                        <a class="btn btn-primary"> Licht an</a>
+                    </div>
+
+                    <div class="col">
+                        <!-- Vierte Spalte: Debug-Modus -->
+                        <a class="btn btn-danger"> Licht aus</a>
+                    </div>
+                </div>
+
+                <!-- Abstand zwischen den Karten und dem Zurück-Button -->
+                <div class="mt-2">
+                    <a class="btn btn-danger w-100" style="font-size: 0.8rem; padding: 0.6rem;" href="{{url_for('systemSettings')}}">
+                        <!-- Roter Button mit Link zurück zur Benutzeroberfläche -->
+                        Zurück
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

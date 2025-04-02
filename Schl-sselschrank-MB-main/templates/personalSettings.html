@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+<!-- Erweitert die Basisvorlage 'base.html', um ein konsistentes Layout zu gewährleisten -->
+
+{% block content %}
+<!-- Beginnt den Block für den Hauptinhalt, der in die Basisvorlage eingefügt wird -->
+
+    <style>
+        body {
+            background-color: #e9e9e9;
+            /* Heller Hintergrund für die Seite */
+        }
+
+        .container-fluid {
+            max-width: 95%;
+            background-color: #dbdbdb;
+            color: black;
+            /* Container mit hellem Hintergrund und schwarzem Text */
+        }
+
+        .card img {
+            max-width: 60px; /* Kleinere Icons */
+            height: auto;
+        }
+
+        h1, h2 {
+            font-size: 1rem; /* Kleinere Schriftgröße */
+        }
+
+        .btn {
+            font-size: 0.8rem; /* Kleinere Buttons */
+            padding: 0.6rem; /* Weniger Padding */
+        }
+
+        @media (max-width: 768px) {
+            /* Anpassungen für kleinere Bildschirme */
+            .card img {
+                max-width: 50px; /* Noch kleinere Icons */
+            }
+
+            h1, h2 {
+                font-size: 0.9rem; /* Noch kleinere Schriftgröße */
+            }
+
+            .btn {
+                font-size: 0.7rem; /* Noch kleinere Buttons */
+                padding: 0.5rem; /* Weniger Padding */
+            }
+        }
+    </style>
+
+    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+        <!-- Flexbox-Container, der den Inhalt vertikal und horizontal zentriert -->
+        <h1 style="color: black; text-align: center; font-size: 1rem;">Persönliche Einstellungen</h1>
+        <!-- Überschrift für die Seite -->
+
+        <div class="p-2 rounded container-fluid">
+            <!-- Container mit Polsterung, abgerundeten Ecken und hellem Hintergrund -->
+
+            <div class="mb-3">
+                <!-- Abstand nach unten -->
+
+                <div class="container text-center">
+                    <!-- Zentrierter Container für den Inhalt -->
+
+                    <div class="row g-2">
+                        <!-- Grid-Layout mit Abstand zwischen den Karten -->
+
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <!-- Erste Spalte: Karte neu einlesen -->
+                            <div class="card h-100" style="background-color: transparent; border:none;">
+                                <!-- Karte ohne Hintergrund und Rahmen -->
+                                <a class="btn btn-secondary" href="{{url_for('reread_card')}}">
+                                    <!-- Button mit Link zur Funktion "Karte neu einlesen" -->
+                                    <img src="/static/card.png" class="img-fluid"><br>
+                                    <!-- Icon für Karte -->
+                                    <h2>Karte neu Einlesen</h2>
+                                    <!-- Beschriftung -->
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <!-- Zweite Spalte: PIN ändern -->
+                            <div class="card h-100" style="background-color: transparent; border:none;">
+                                <a class="btn btn-secondary" href="{{url_for('change_pin')}}">
+                                    <!-- Button mit Link zur Funktion "PIN ändern" -->
+                                    <img src="/static/pin-number.png" class="img-fluid"><br>
+                                    <!-- Icon für PIN -->
+                                    <h2>Pin ändern</h2>
+                                    <!-- Beschriftung -->
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <!-- Dritte Spalte: Kürzel ändern -->
+                            <div class="card h-100" style="background-color: transparent; border:none;">
+                                <a class="btn btn-secondary" href="{{url_for('change_kuerzel')}}">
+                                    <!-- Button mit Link zur Funktion "Kürzel ändern" -->
+                                    <img src="/static/user.png" class="img-fluid"><br>
+                                    <!-- Icon für Kürzel -->
+                                    <h2>Kürzel ändern</h2>
+                                    <!-- Beschriftung -->
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <!-- Vierte Spalte: Namen ändern -->
+                            <div class="card h-100" style="background-color: transparent; border:none;">
+                                <a class="btn btn-secondary" href="{{url_for('change_name')}}">
+                                    <!-- Button mit Link zur Funktion "Namen ändern" -->
+                                    <img src="/static/nameTag.png" class="img-fluid"><br>
+                                    <!-- Icon für Namen -->
+                                    <h2>Namen ändern</h2>
+                                    <!-- Beschriftung -->
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Abstand zwischen den Karten und dem Zurück-Button -->
+                    <div class="mt-2">
+                        <a class="btn btn-danger w-100" style="font-size: 0.8rem; padding: 0.6rem;" href="{{url_for('userPanel')}}">
+                            <!-- Roter Button mit Link zurück zur Benutzeroberfläche -->
+                            Zurück
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+<!-- Ende des Inhaltsblocks -->
